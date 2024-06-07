@@ -31,15 +31,11 @@ app.post("/create-quote", async (req, res) => {
     const { quote, author } = req.body;
     try {
         const create = await new Quote({ quote, author }).save();
-        if (create) {
-            res.status(201).send({
-                success: true,
-                message: 'new quote created',
-                create
-            })
-        } else {
-            res.status(400).send({ success: false })
-        }
+        res.status(201).send({
+            success: true,
+            message: 'new quote created',
+            create
+        })
     } catch (error) {
         console.log(error);
     }
