@@ -3,9 +3,6 @@ const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
 const dotenv = require("dotenv");
 const Quote = require("./quoteModel.js");
-const alert = require("alert");
-const notifier = require('node-notifier');
-
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
