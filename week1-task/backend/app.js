@@ -85,7 +85,7 @@ app.get("/api/get-quote", async (req, res) => {
         const min = 0;
         const max = quotes.length() - 1;
 
-        const randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+        const randomNum = Math.floor((Math.random() * (max - min + 1)) + min);
         res.status(200).send(quotes[randomNum])
     } catch (err) {
         console.log(err.message);
