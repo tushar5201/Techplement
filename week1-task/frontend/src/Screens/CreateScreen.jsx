@@ -11,12 +11,8 @@ function CreateScreen() {
     const createQuote = async () => {
         try {
             const res = await axios.post("https://techplement-backend.vercel.app/create-quote", { quote, author });
-            if (res.status === 201) {
-                window.alert('New Quote Created');
-                navigate('/');
-            } else {
-                window.alert(res.status);
-            }
+            window.alert('New Quote Created');
+            navigate("/")
         } catch (error) {
             console.log(error.message);
         }
