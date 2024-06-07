@@ -29,7 +29,7 @@ function HomeScreen() {
     const [id, setId] = useState();
 
     const newQuote = async () => {
-        const res = await axios.get("/api/get-quote");
+        const res = await axios.get("https://techplement-backend.vercel.app/api/get-quote");
         if (res.status === 200) {
             setId(res.data._id);
             setQuote(res.data.quote);
@@ -40,7 +40,7 @@ function HomeScreen() {
     const getAllAuthors = async () => {
         dispatch({ type: 'FETCH_REQUEST' });
         try {
-            const res = await axios.get("/api/get-all-authors");
+            const res = await axios.get("https://techplement-backend.vercel.app/api/get-all-authors");
             dispatch({ type: 'FETCH_SUCCESS', payload: res.data });
         } catch (error) {
             dispatch({ type: 'FETCH_FAILED', payload: console.log(error) });
@@ -54,7 +54,7 @@ function HomeScreen() {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`/api/delete-quote/${id}`, {
+            const res = await fetch(`https://techplement-backend.vercel.app/api/delete-quote/${id}`, {
                 method: "DELETE",
             })
 

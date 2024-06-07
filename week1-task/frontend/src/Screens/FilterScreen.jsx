@@ -32,7 +32,7 @@ function FilterScreen() {
     const [id, setId] = useState();
 
     const getAuthorQuote = async () => {
-        const res = await axios.get(`/api/get-quote/${authorName}`);
+        const res = await axios.get(`https://techplement-backend.vercel.app/api/get-quote/${authorName}`);
         if (res.status === 201) {
             console.log(res);
             setId(res.data._id);
@@ -44,7 +44,7 @@ function FilterScreen() {
     const getAllAuthors = async () => {
         dispatch({ type: 'FETCH_REQUEST' });
         try {
-            const res = await axios.get("/api/get-all-authors");
+            const res = await axios.get("https://techplement-backend.vercel.app/api/get-all-authors");
             dispatch({ type: 'FETCH_SUCCESS', payload: res.data });
         } catch (error) {
             dispatch({ type: 'FETCH_FAILED', payload: console.log(error) });
@@ -58,7 +58,7 @@ function FilterScreen() {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`/api/delete-quote/${id}`, {
+            const res = await fetch(`https://techplement-backend.vercel.app/api/delete-quote/${id}`, {
                 method: "DELETE",
             })
 

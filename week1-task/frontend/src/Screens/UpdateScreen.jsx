@@ -12,7 +12,7 @@ function UpdateScreen() {
 
     const updateQuote = async (id) => {
         try {
-            const res = await axios.put(`/api/update-quote/${id}`, { quote, author });
+            const res = await axios.put(`https://techplement-backend.vercel.app/api/update-quote/${id}`, { quote, author });
             if (res.status === 201) {
                 window.alert('Quote Updated');
                 navigate('/');
@@ -28,7 +28,7 @@ function UpdateScreen() {
 
     const getData = async (id) => {
         try {
-            const res = await axios.get(`/api/get-a-quote/${id}`);
+            const res = await axios.get(`https://techplement-backend.vercel.app/api/get-a-quote/${id}`);
             if (res.status === 201) {
                 setData(res.data);
             }
