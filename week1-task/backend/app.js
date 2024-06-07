@@ -3,9 +3,11 @@ const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
 const dotenv = require("dotenv");
 const Quote = require("./quoteModel.js");
+const cors = require("cors");
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.use(cors(
     {
