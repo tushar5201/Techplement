@@ -10,14 +10,15 @@ function CreateScreen() {
 
     const createQuote = async () => {
         try {
-            const res = await axios.post("https://techplement-backend.vercel.app/create-quote", { quote, author });
-            if (res.status === 201) {
-                console.log("created");
-                window.alert('New Quote Created');
-                navigate('/');
-            } else {
-                window.alert(res.status);
-            }
+            const res = await axios.post("https://techplement-backend.vercel.app/create-quote", { quote, author })
+            .then(window.alert("New Quote Creted"))
+            .then(navigate('/'))
+            // if (res.status === 201) {
+            //     window.alert('New Quote Created');
+            //     navigate('/');
+            // } else {
+            //     window.alert(res.status);
+            // }
         } catch (error) {
             console.log(error.message);
         }
