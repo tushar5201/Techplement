@@ -17,7 +17,7 @@ app.use(cors(
 ));
 
 dotenv.config();
-mongoose.connect("mongodb+srv://tusharlakadiya:tushar5201@cluster0.zw0ywc4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
+mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("Connected to db");
 }).catch((err) => {
     console.log(err.message);
