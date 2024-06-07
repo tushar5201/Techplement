@@ -17,6 +17,10 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log(err.message);
 });
 
+app.get('/', async (req, res) => {
+    res.json("Hello");
+})
+
 app.post("/create-quote", async (req, res) => {
     const { quote, author } = req.body;
     try {
