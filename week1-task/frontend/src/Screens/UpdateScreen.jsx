@@ -1,24 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function UpdateScreen() {
 
     const [quote, setQuote] = useState("");
     const [author, setAuthor] = useState("");
-    const navigate = useNavigate();
     const { id } = useParams();
 
     const updateQuote = async (id) => {
         try {
-            const res = await axios.put(`https://techplement-backend.vercel.app/api/update-quote/${id}`, { quote, author });
-            if (res.status === 201) {
-                window.alert('Quote Updated');
-                navigate('/');
-            } else {
-                window.alert(res.status);
-            }
+            await axios.put(`https://techplement-backend.vercel.app/api/update-quote/${id}`, { quote, author })
+            .then(window.alert("Quote Updated"))
         } catch (error) {
             console.log(error);
         }

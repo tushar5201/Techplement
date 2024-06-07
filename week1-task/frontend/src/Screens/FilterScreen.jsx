@@ -54,7 +54,7 @@ function FilterScreen() {
     useEffect(() => {
         getAllAuthors();
         getAuthorQuote();
-    }, []);
+    }, [authorName]);
 
     const handleDelete = async (id) => {
         try {
