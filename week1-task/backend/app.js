@@ -7,6 +7,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+app.use(cors(
+    {
+        origin: "https://techplement-frontend.vercel.app",
+        methods: ["POST", "GET", "DELETE", "PUT"]
+    }
+));
+
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("Connected to db");
